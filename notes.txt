@@ -1,0 +1,15 @@
+
+>Synergy company
+>38 yrs exp
+>CDAC
+>If you can see it u can program it
+>Concept visualisation
+
+
+>Program runnning is process
+>Every program is converted into process map in RAM
+Process Map -> Code | BSS+Data | Heap(common) | Stack(common)
+
+>from:"microsoft" javascript
+>F9 to set debug
+>F5 to start debug
