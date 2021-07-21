@@ -18,3 +18,6 @@ const txn = [
     {txnNo: 2, desc: "Amazon", amount: 1250.00},
     {txnNo: 1, desc: "Uber", amount: 300.00}
 ];
+
+const total = txn
+    .filter(elem => elem)
