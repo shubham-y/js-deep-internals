@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    const longRun = ms => {
+        console.log("start longRun");
+        const start = new Date;
+        while(new Date - start < ms)
+            /* do nothing */;
+        console.log("end longRun");
+    }
+
+    const frozen = () => {
+        console.log("start frozen");
+        longRun(15000);
+        console.log("end frozen");
+    }
+    const notFrozen = () => {
+        console.log("start notFrozen");
+
+        //! setTimeout is NOT background/parallel task
+        setTimeout(longRun, 5000, 15000); //!Deferred
+        console.log("end notFrozen");
+    }
+
+    const promise = () => {
+        const pakka = new Promise((resolve, reject) => {
+            longRun(5000); //STUCK
+            resolve(42);
+        });
+
+        pakka
+            .then(result => {
+                console.log(`resolved ${result}`);
+                longRun(15000);
+            }
+            ).catch(error => console.log(`error ${error}`));
+        console.log("bye bye");
+        longRun(5000);
+        console.log("final bye");
+    }
+</script>
+<body>
+    <input type="number">
+    <button onclick="frozen()">Frozen</button>
+    <button onclick="notFrozen()">Not Frozen</button>
+    <button onclick="promise()">Promise</button>
+</body>
+</html>
