@@ -1,0 +1,23 @@
+{
+  "name": "js-deep-internals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "arguments.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubham-y/js-deep-internals.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubham-y/js-deep-internals/issues"
+  },
+  "homepage": "https://github.com/shubham-y/js-deep-internals#readme",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5"
+  }
+}
