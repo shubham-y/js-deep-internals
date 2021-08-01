@@ -30,12 +30,12 @@
     }
 
     const promise = () => {
-        const pakka = new Promise((resolve, reject) => {
+        const final = new Promise((resolve, reject) => {
             longRun(5000); //STUCK
             resolve(42);
         });
 
-        pakka
+        final
             .then(result => {
                 console.log(`resolved ${result}`);
                 longRun(15000);
