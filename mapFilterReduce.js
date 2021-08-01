@@ -20,4 +20,17 @@ const txn = [
 ];
 
 const total = txn
-    .filter(elem => elem)
+    .filter(elem => elem.amount >= 300)
+    .map(elem => { return { txnNo: elem.txnNo, amount: elem.amount+100}})
+    .reduce( (sum, element) => sum + element.amount, 0);
+//%                           (0, 250)
+//%                           (250, 1250)
+//%                           (1500, 300)
+//% 1800
+//! ({ txnNo: 1, description: "Zomato", amount: 250.00}, 1250)
+console.log({total});
+
+const languages = ['C', 'C++', 'Java', "Javascirpt"];
+const singleLine = languages.reduce( (line, lang) => line + ", " +  lang);
+console.log(singleLine);
+console.log(languages.join(", "));
