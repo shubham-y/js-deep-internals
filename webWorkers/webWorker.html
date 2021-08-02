@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // const longRun = ms => {
+        //     const start = new Date;
+        //     while (new Date-start<ms)
+        //     ;
+        // }
+
+        const doWork = () => {
+            // longRun(10000);
+            const wrk = new Worker("bgwork.js"); //* This will get loaded in separate process map
+            wrk.postMessage(10000);
+            wrk.onmessage = (event) => document.querySelector("input").value = event.data;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" value="Loading..."/>
+    <button onclick="doWork()">Work</button>
+</body>
+</html>
